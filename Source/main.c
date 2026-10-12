@@ -7,21 +7,32 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     // Оголошення змінних
     double x1, x2, delta;
-    unsigned int N, var;
+    unsigned int N;
+    char group[20] = "";
+    char name[100] = "";
 
-    printf("Введіть початковий аргумент: ");
-    scanf("%lf", &x1);
+    FILE* input_data_file;
 
-    printf("Введіть кінцевий аргумент: ");
-    scanf("%lf", &x2);
+    if((input_data_file = fopen("Texts/input_data.txt", "r")) != 0) {
+        fscanf(input_data_file, "%lf", &x1);
+        fscanf(input_data_file, "%lf", &x2);
+        fscanf(input_data_file, "%u", &N);
+        fscanf(input_data_file, "%lf", &delta);
+        fscanf(input_data_file, "%s", &group);
+        fscanf(input_data_file, "%[^\r\n]", name);
 
-    printf("Введіть кількість точок в таблиці: ");
-    scanf("%u", &N);
+        fclose(input_data_file);
+    } else {
+        printf("Error! File cannot be opened 1");
+        return 0;
+    }
 
-    printf("Введіть крок зміни аргументу: ");
-    scanf("%lf", &delta);
-
-    printf("%s", make_table(x1, x2, N, delta));
+    printf("x1: %f\n", x1);
+    printf("x2: %f\n", x2);
+    printf("N: %u\n", N);
+    printf("delta: %f\n", delta);
+    printf("Group: %s\n", group);
+    printf("Name: %s\n", name);
     
     return 0;
 }
