@@ -16,6 +16,7 @@ char* make_table(double x1, double x2, unsigned int N, double delta)
     {
         char temp[100];
         double func = pow(x1, 2);
+        if (x1 > x2) break;
 
         strcat(result, "\n+----------+----------+----------+");
         sprintf(temp, "\n|%10u|%10.2lf|%10.2lf|", i, x1, func);

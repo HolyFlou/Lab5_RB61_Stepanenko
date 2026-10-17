@@ -52,6 +52,7 @@ int main()
         
         for (unsigned int j = 0; j < N; j++) {
             double func = pow(x1, 2);
+            if (x1 > x2) break;
             fwrite(&x1, sizeof(double), 1, bin_file);
             fwrite(&func, sizeof(double), 1, bin_file);
             x1 += delta;
