@@ -1,9 +1,7 @@
-#include <windows.h>
 #include "funcs.h"
 
 int main()
 {
-    SetConsoleOutputCP(CP_UTF8);
     
     // Оголошення змінних
     double x1, x2, delta;
